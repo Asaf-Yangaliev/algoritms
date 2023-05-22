@@ -18,12 +18,12 @@ public class SmilesErasureTest {
     }
 
     @ParameterizedTest
-    @MethodSource("testStream")
+    @MethodSource("arguments")
     void erasureSmilesTest(String input, String expected) {
         Assertions.assertEquals(expected, erasureSmiles(input));
     }
 
-    static Stream<Arguments> testStream() {
+    static Stream<Arguments> arguments() {
         return Stream.of(
                 Arguments.of("", ""),
                 Arguments.of("hello:-)", "hello"),

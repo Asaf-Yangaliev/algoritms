@@ -9,22 +9,29 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static uz.yangaliev.tree.Node.depth;
+import static uz.yangaliev.tree.Node.iterativeDepth;
+import static uz.yangaliev.tree.Node.recursiveDepth;
 
 public class NodeTest {
 
     @Test
     void nullNodeTest() {
-        assertThrows(IllegalArgumentException.class, () -> depth(null));
+        assertThrows(IllegalArgumentException.class, () -> iterativeDepth(null));
     }
 
     @ParameterizedTest
-    @MethodSource("testStream")
-    void nodeDepthTest(Node input, int expected) {
-        assertEquals(depth(input), expected);
+    @MethodSource("arguments")
+    void iterativeNodeDepthTest(Node input, int expected) {
+        assertEquals(iterativeDepth(input), expected);
     }
 
-    static Stream testStream() {
+    @ParameterizedTest
+    @MethodSource("arguments")
+    void recursiveNodeDepthTest(Node input, int expected) {
+        assertEquals(recursiveDepth(input), expected);
+    }
+
+    static Stream<Arguments> arguments() {
         return Stream.of(
                 Arguments.of(new Node(
                         new Node(

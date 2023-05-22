@@ -6,7 +6,6 @@ import java.util.Stack;
 
 public class Node {
 
-    public Node parent;
     Node left;
     Node right;
 
@@ -17,14 +16,9 @@ public class Node {
     public Node(Node left, Node right) {
         this.left = left;
         this.right = right;
-
-        if (left != null)
-            left.parent = this;
-        if (right != null)
-            right.parent = this;
     }
 
-    public static int depth(Node node) {
+    public static int iterativeDepth(Node node) {
         if (node == null)
             throw new IllegalArgumentException("Node must not be null");
         Stack<Node> stack = new Stack<>();
@@ -54,5 +48,18 @@ public class Node {
             }
         }
         return maxDepth;
+    }
+
+    public static int recursiveDepth(Node node) {
+        if (node == null)
+            throw new IllegalArgumentException("Node must not be null");
+        int leftDepth = 0;
+        if (node.left != null)
+            leftDepth = recursiveDepth(node.left);
+        int rightDepth = 0;
+        if (node.right != null)
+            rightDepth = recursiveDepth(node.right
+            );
+        return Math.max(leftDepth, rightDepth) + 1;
     }
 }
