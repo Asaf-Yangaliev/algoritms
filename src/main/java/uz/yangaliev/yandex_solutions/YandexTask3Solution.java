@@ -38,7 +38,7 @@ public class YandexTask3Solution {
             }
             mergeArrays(array1, 0, array1.length - 1,
                     array2, 0, array2.length - 1,
-                    result, 0, result.length - 1);
+                    result, 0);
             try (PrintWriter pw = new PrintWriter(System.out)) {
                 for (int item : result) {
                     pw.print(item + " ");
@@ -48,13 +48,14 @@ public class YandexTask3Solution {
     }
 
     public static void mergeArrays(int[] array1, int firstBegin, int firstEnd,
-                                    int[] array2, int secondBegin, int secondEnd,
-                                    int[] result, int resultBegin, int resultEnd) {
+                                   int[] array2, int secondBegin, int secondEnd,
+                                   int[] result, int resultBegin) {
+        int resultLength = firstEnd - firstBegin + 1 + secondEnd - secondBegin + 1;
         int MAX = Integer.MAX_VALUE;
         int i = resultBegin, i1 = firstBegin, i2 = secondBegin;
         int current1 = array1[i1];
         int current2 = array2[i2];
-        while (i <= resultEnd) {
+        while (i < resultLength) {
             if (current1 <= current2) {
                 result[i] = current1;
                 i1++;
