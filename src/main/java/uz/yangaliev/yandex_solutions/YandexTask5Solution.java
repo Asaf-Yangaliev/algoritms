@@ -76,19 +76,20 @@ public class YandexTask5Solution {
 
     private static void beginPrint(PrintWriter pw, String[] array) {
         pw.println("Initial array:");
-        for (String item : array) {
-            pw.print(item);
-            pw.print(" ");
-        }
-        pw.println();
+        printArray(pw, array);
         pw.println("**********");
     }
 
     private static void endPrint(PrintWriter pw, String[] array) {
         pw.println("Sorted array:");
-        for (String item : array) {
-            pw.print(item);
-            pw.print(" ");
+        printArray(pw, array);
+    }
+
+    private static void printArray(PrintWriter pw, String[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            pw.print(array[i]);
+            pw.print(", ");
         }
+        pw.println(array[array.length - 1]);
     }
 }
