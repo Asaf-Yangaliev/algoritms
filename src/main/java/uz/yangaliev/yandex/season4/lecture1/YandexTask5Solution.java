@@ -1,4 +1,4 @@
-package uz.yangaliev.yandex_solutions;
+package uz.yangaliev.yandex.season4.lecture1;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

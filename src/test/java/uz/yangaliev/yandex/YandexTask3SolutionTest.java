@@ -1,9 +1,10 @@
-package uz.yangaliev.yandex_solutions;
+package uz.yangaliev.yandex;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import uz.yangaliev.yandex.season4.lecture1.YandexTask3Solution;
 
 import java.util.stream.Stream;
 
